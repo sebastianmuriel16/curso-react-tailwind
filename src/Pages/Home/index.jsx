@@ -16,11 +16,12 @@ function Home() {
         Home
         <div className="grid gap-2 grid-cols-4 w-full max-w-screen-lg">
         {
-          items && items.map((item)=>{
-            return <Card 
+          items?.map((item)=>(
+            <Card 
             key={item.id}
             data={item}/> 
-          })
+          )
+          )
         }
         </div>
         <ProductDetail/>
