@@ -36,3 +36,7 @@ const ProductDetail = () => {
 };
 
 export { ProductDetail };
+
+
+
+

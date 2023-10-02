@@ -7,6 +7,7 @@ import { MyOrders } from '../MyOrders/MyOrders.jsx'
 import { NotFound } from '../NotFound/NotFound.jsx'
 import { SingIn } from '../SignIn/SingnIn.jsx'
 import { Navbar } from '../../Components/Navbar'
+import { CheckOutSideMenu } from '../../Components/CheckOutSideMenu'
 import './App.css' 
 
 const AppRoutes = () =>{
@@ -27,6 +28,7 @@ function App() {
       <BrowserRouter>
       <AppRoutes/>
       <Navbar/>
+      <CheckOutSideMenu/>
     </BrowserRouter> 
     </ShoppingCartProvider>
   )
