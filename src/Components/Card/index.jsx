@@ -23,7 +23,6 @@ const Card = (data) => {
     setCartProducts([...cartProducts, productData]);
     closeProductDetail();
     openCheckoutSideMenu();  
-    console.log('Product: ', cartProducts);
   }
 
 
