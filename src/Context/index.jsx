@@ -1,25 +1,28 @@
-import { createContext, useState } from "react";
+import { createContext, useState } from 'react'
 
-const ShoppingCartContext = createContext();
+const ShoppingCartContext = createContext()
 
 const ShoppingCartProvider = ({ children }) => {
   // Shopping cart increment count
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
 
   //show detail open/close
-  const [isProductDetailOpen, setIsProductDetailOpen] = useState(false);
-  const openProductDetail = () => setIsProductDetailOpen(true);
-  const closeProductDetail = () => setIsProductDetailOpen(false);
+  const [isProductDetailOpen, setIsProductDetailOpen] = useState(false)
+  const openProductDetail = () => setIsProductDetailOpen(true)
+  const closeProductDetail = () => setIsProductDetailOpen(false)
 
-    //checkout side menu open/close
-    const [isCheckoutSideMenuOpen, setIsCheckoutSideMenuOpen] = useState(false);
-    const openCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(true);
-    const closeCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(false);
+  //checkout side menu open/close
+  const [isCheckoutSideMenuOpen, setIsCheckoutSideMenuOpen] = useState(false)
+  const openCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(true)
+  const closeCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(false)
 
   //show product detail
-  const [productToShow, setProductToShow] = useState({});
-  // shipping cart Add products to cart 
-  const [cartProducts, setCartProducts] = useState([]);
+  const [productToShow, setProductToShow] = useState({})
+  // shipping cart Add products to cart
+  const [cartProducts, setCartProducts] = useState([])
+
+  // Shopping cart - Order
+  const [order, setOrder] = useState([])
 
   return (
     <ShoppingCartContext.Provider
@@ -37,11 +40,13 @@ const ShoppingCartProvider = ({ children }) => {
         setIsCheckoutSideMenuOpen,
         openCheckoutSideMenu,
         closeCheckoutSideMenu,
+        order,
+        setOrder,
       }}
     >
       {children}
     </ShoppingCartContext.Provider>
-  );
-};
+  )
+}
 
-export { ShoppingCartContext, ShoppingCartProvider };
+export { ShoppingCartContext, ShoppingCartProvider }
