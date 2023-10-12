@@ -16,7 +16,8 @@ const AppRoutes = () => {
     { path: '/my-account', element: <Myaccount /> },
     { path: '/my-order', element: <MyOrder /> },
     { path: '/my-orders', element: <MyOrders /> },
-    { path: '/my-orders/last', element: <MyOrders /> },
+    { path: '/my-orders/last', element: <MyOrder /> },
+    { path: '/my-orders/:id', element: <MyOrder /> }, // el id es por el numero de orden o el index del arreglo de ordenes
     { path: '/sign-in', element: <SingIn /> },
     { path: '/*', element: <NotFound /> },
   ])

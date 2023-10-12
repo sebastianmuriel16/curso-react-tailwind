@@ -26,7 +26,7 @@ const CheckOutSideMenu = () => {
       date: new Date(),
       products: cartProducts,
       totalProducts: cartProducts.length,
-      total: totalPrice(cartProducts),
+      totalPrice: totalPrice(cartProducts),
     }
     setOrder([...order, orderToAdd])
     setCartProducts([])
@@ -55,7 +55,7 @@ const CheckOutSideMenu = () => {
               key={product.id}
               id={product.id}
               title={product.title}
-              imagenUrl={product.image}
+              imagenUrl={product.images}
               price={product.price}
               handleDelete={handleDelete}
             />

@@ -6,6 +6,7 @@ import './styles.css'
 const ProductDetail = () => {
   const { isProductDetailOpen, closeProductDetail, productToShow } =
     useContext(ShoppingCartContext)
+
   return (
     <aside
       className={`${
@@ -24,7 +25,7 @@ const ProductDetail = () => {
       <figure className="px-6">
         <img
           className="w-full h-full rounded-lg"
-          src={productToShow.image ? productToShow.image : ''}
+          src={productToShow.images}
           alt={productToShow.title}
         />
       </figure>
