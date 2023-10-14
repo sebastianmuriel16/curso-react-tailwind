@@ -1,8 +1,20 @@
-import { createContext, useState } from 'react'
+import { createContext, useState, useEffect } from 'react'
+
 
 const ShoppingCartContext = createContext()
 
+
 const ShoppingCartProvider = ({ children }) => {
+  //llamado a la API
+  useEffect(() => {
+    fetch('https://api.escuelajs.co/api/v1/products')
+      .then((response) => response.json())
+      .then((data) => setItems(data))
+  }, [])
+
+  //get products
+  const [items, setItems] = useState(null)
+
   // Shopping cart increment count
   const [count, setCount] = useState(0)
 
@@ -24,6 +36,22 @@ const ShoppingCartProvider = ({ children }) => {
   // Shopping cart - Order
   const [order, setOrder] = useState([])
 
+  //get products by title-search
+  const [searchByTitle, setSearchByTitle] = useState(null)
+
+  //items filtered by title
+  const [filteredItems, setFilteredItems] = useState(null)
+
+  const filteredItemsByTitle = (items,searchByTitle) => {
+    return items?.filter((item) => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
+  }
+
+  useEffect(() => {
+    if(searchByTitle){
+      setFilteredItems(filteredItemsByTitle(items,searchByTitle))
+    }
+  }, [searchByTitle])
+
   return (
     <ShoppingCartContext.Provider
       value={{
@@ -42,6 +70,12 @@ const ShoppingCartProvider = ({ children }) => {
         closeCheckoutSideMenu,
         order,
         setOrder,
+        items,
+        setItems,
+        searchByTitle,
+        setSearchByTitle,
+        filteredItems,
+        setFilteredItems
       }}
     >
       {children}
