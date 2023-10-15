@@ -5,19 +5,21 @@ import { Card } from '../../Components/Card'
 import { ProductDetail } from '../../Components/ProductDetail'
 
 function Home() {
-  const { items, setSearchByTitle, searchByTitle,filteredItems } =
+  const {filteredItems,setSearchByTitle } =
     useContext(ShoppingCartContext)
 
   const renderView = () => {
-    if (searchByTitle) {
-      if(filteredItems?.length > 0){
-        return filteredItems.map((item) => <Card key={item.id} data={item} />)
-      }else{
-        return <h1 className="font-medium text-xl">No products found</h1>
-      }
-    
-    } else {
-      return items?.map((item) => <Card key={item.id} data={item} />)
+    if(filteredItems?.length > 0){
+      return (
+        filteredItems?.map((item) => (
+          <Card key={item.id} data={item} />
+        ))
+      )
+    }
+    else{
+      return(
+        <div>No se encontraron productos</div>
+      )
     }
   }
 
