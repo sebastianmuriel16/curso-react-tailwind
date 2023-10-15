@@ -29,6 +29,7 @@ const CheckOutSideMenu = () => {
       totalProducts: cartProducts.length,
       totalPrice: totalPrice(cartProducts),
     }
+    closeCheckoutSideMenu()
     setOrder([...order, orderToAdd])
     setCartProducts([])
     setSearchByTitle(null)

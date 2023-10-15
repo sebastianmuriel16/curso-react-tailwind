@@ -4,7 +4,7 @@ import { ShoppingCartContext } from '../../Context';
 import {ShoppingCartIcon} from '@heroicons/react/24/outline'
 
 const Navbar = () => {
-    const {setSearchByCategory, cartProducts} = useContext(ShoppingCartContext)
+    const {setSearchByCategory, cartProducts, openCheckoutSideMenu} = useContext(ShoppingCartContext)
     const activeStyle = 'underline underline-offset-4'
     return(
         <nav className="flex justify-between items-center fixed z-10 top-0 w-full py-5 px-8 text-small font-light">
@@ -89,7 +89,8 @@ const Navbar = () => {
                         Sing In
                     </NavLink>
                 </li>
-                <li className="flex items-center">
+                <li className="flex items-center"
+                onClick={openCheckoutSideMenu}>
                     <ShoppingCartIcon className="h-6 w-6 text-black"/>
                     {cartProducts.length}
                 </li>
